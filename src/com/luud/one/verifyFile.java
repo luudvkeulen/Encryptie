@@ -1,4 +1,4 @@
-package com.luud;
+package com.luud.one;
 
 import java.io.*;
 import java.security.*;
@@ -31,6 +31,7 @@ public class verifyFile {
             bis.close();
 
             boolean valid = signature.verify(signatureBytes);
+            System.out.println("Signature size: " + signatureSize);
             System.out.println("Signature valid: " + valid);
             if(valid) {
                 System.out.println("Text:" + text);
