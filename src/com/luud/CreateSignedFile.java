@@ -72,17 +72,9 @@ public class CreateSignedFile {
             byte[] pkBytes = new byte[(int) privateKeyFile.length()];
             fis.read(pkBytes);
 
-            KeyFactory keyFactory = null;
-
-            keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(pkBytes));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | IOException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
 
