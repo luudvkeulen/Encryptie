@@ -62,7 +62,9 @@ public class MessageEncrypter {
                 byte[] salt = (byte[]) ois.readObject();
                 byte[] encrypted = (byte[])ois.readObject();
                 String decrypted = decryptMessage(encrypted, passwordCharArray, salt);
-                System.out.println("Message: " + decrypted);
+                if(!decrypted.equals("")) {
+                    System.out.println("Message: " + decrypted);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -141,7 +143,7 @@ public class MessageEncrypter {
         } catch (NoSuchPaddingException e) {
             e.printStackTrace();
         } catch (BadPaddingException e) {
-            e.printStackTrace();
+            System.out.println("Wrong password");
         } catch (IllegalBlockSizeException e) {
             e.printStackTrace();
         }
