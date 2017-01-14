@@ -10,7 +10,6 @@ public class ReadKeys {
     public static void main(String[] args) {
         try {
             File privateKeyFile = new File("private");
-            File publicKeyFile = new File("public");
 
             FileInputStream fis = new FileInputStream(privateKeyFile);
             byte[] pkBytes = new byte[(int)privateKeyFile.length()];

@@ -37,7 +37,7 @@ public class CreateSignedFile {
             //Add contents to the file
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(output));
             oos.writeInt(signatureBytes.length);
-            oos.write(signatureBytes);
+            oos.writeObject(signatureBytes);
             oos.writeObject(readInputFile());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
